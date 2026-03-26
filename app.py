@@ -19,7 +19,7 @@ CLASS_NAMES = [
     "VeryMildDemented"
 ]
 
-GROQ_API_KEY ="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"
+GROQ_API_KEY =""
 
 
 @st.cache_resource

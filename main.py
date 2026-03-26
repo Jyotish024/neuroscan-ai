@@ -1,6 +1,4 @@
-from fastapi import FastAPI, UploadFile, File, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
-from contextlib import asynccontextmanager
+
 import tensorflow as tf
 import numpy as np
 from PIL import Image

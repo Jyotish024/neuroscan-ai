@@ -1,0 +1,75 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+
+@theme {
+  --color-primary: #004a99;
+  --color-primary-dark: #003366;
+  --color-primary-light: #0066cc;
+
+  --color-medical-bg-light: #f5f7f8;
+  --color-medical-bg-dark: #0f1923;
+
+  --font-sans: "Inter", ui-sans-serif;
+
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+
+  --shadow-medical: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Force light mode background globally when .dark is not present */
+:root {
+  background-color: #f5f7f8;
+  color: #1e293b;
+}
+
+/* Force dark mode background globally when .dark is present */
+.dark {
+  background-color: #0f1923;
+  color: #f8fafc;
+}
+
+@layer base {
+
+  html,
+  body,
+  #root {
+    @apply h-full transition-colors duration-300;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#f5f7f8] text-slate-900;
+  }
+
+  .dark body {
+    @apply bg-[#0f1923] text-slate-100;
+  }
+}
+
+@layer components {
+
+  /* Unified Card Styling */
+  .medical-card {
+    @apply bg-white rounded-2xl shadow-medical border border-slate-100 transition-all duration-300;
+  }
+
+  .dark .medical-card {
+    @apply bg-slate-900/50 border-slate-800 shadow-none backdrop-blur-sm;
+  }
+
+  /* Unified Navigation Styling */
+  .glass-nav {
+    @apply bg-white/95 border-slate-100 border-t shadow-sm;
+  }
+
+  .dark .glass-nav {
+    @apply bg-slate-900/95 border-slate-800 backdrop-blur-md shadow-none;
+  }
+
+  /* Utility to ensure all parent containers are consistent */
+  .bg-main {
+    @apply bg-[#f5f7f8] dark:bg-[#0f1923] transition-colors duration-300;
+  }
+}
